@@ -13,7 +13,7 @@ final currentUserStream = StreamProvider<model.User?>((ref) {
   final transformer = StreamTransformer<User?, model.User?>.fromHandlers(
       handleData: (User? authUser, sink) {
     if (authUser != null) {
-      repository.stream(app, authUser.uid).listen((model.User? user) {
+      repository.stream(authUser.uid)?.listen((model.User? user) {
         sink.add(user);
       });
     } else {

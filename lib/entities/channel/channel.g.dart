@@ -9,7 +9,6 @@ part of 'channel.dart';
 _$_Channel _$_$_ChannelFromJson(Map<String, dynamic> json) {
   return _$_Channel(
     id: json['id'] as String? ?? '',
-    teamId: json['teamId'] as String? ?? '',
     name: json['name'] as String? ?? '',
   );
 }
@@ -17,6 +16,5 @@ _$_Channel _$_$_ChannelFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$_$_ChannelToJson(_$_Channel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'teamId': instance.teamId,
       'name': instance.name,
     };

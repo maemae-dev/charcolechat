@@ -16,9 +16,9 @@ class ChannelList extends StateNotifier<List<Channel>> {
     print(_app);
     print(_user);
     if (_app == null || _user == null) return;
-    _repository.joinedChannels(_app!, _user!).then((list) {
+    _repository.joinedChannels(_user!).then((list) {
       if (mounted) {
-        state = list;
+        state = list ?? [];
       }
     });
   }

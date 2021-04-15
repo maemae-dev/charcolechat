@@ -20,10 +20,9 @@ Channel _$ChannelFromJson(Map<String, dynamic> json) {
 class _$ChannelTearOff {
   const _$ChannelTearOff();
 
-  _Channel call({String id = '', String teamId = '', String name = ''}) {
+  _Channel call({String id = '', String name = ''}) {
     return _Channel(
       id: id,
-      teamId: teamId,
       name: name,
     );
   }
@@ -39,7 +38,6 @@ const $Channel = _$ChannelTearOff();
 /// @nodoc
 mixin _$Channel {
   String get id => throw _privateConstructorUsedError;
-  String get teamId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -51,7 +49,7 @@ mixin _$Channel {
 abstract class $ChannelCopyWith<$Res> {
   factory $ChannelCopyWith(Channel value, $Res Function(Channel) then) =
       _$ChannelCopyWithImpl<$Res>;
-  $Res call({String id, String teamId, String name});
+  $Res call({String id, String name});
 }
 
 /// @nodoc
@@ -65,17 +63,12 @@ class _$ChannelCopyWithImpl<$Res> implements $ChannelCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
-    Object? teamId = freezed,
     Object? name = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      teamId: teamId == freezed
-          ? _value.teamId
-          : teamId // ignore: cast_nullable_to_non_nullable
               as String,
       name: name == freezed
           ? _value.name
@@ -90,7 +83,7 @@ abstract class _$ChannelCopyWith<$Res> implements $ChannelCopyWith<$Res> {
   factory _$ChannelCopyWith(_Channel value, $Res Function(_Channel) then) =
       __$ChannelCopyWithImpl<$Res>;
   @override
-  $Res call({String id, String teamId, String name});
+  $Res call({String id, String name});
 }
 
 /// @nodoc
@@ -105,17 +98,12 @@ class __$ChannelCopyWithImpl<$Res> extends _$ChannelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? teamId = freezed,
     Object? name = freezed,
   }) {
     return _then(_Channel(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      teamId: teamId == freezed
-          ? _value.teamId
-          : teamId // ignore: cast_nullable_to_non_nullable
               as String,
       name: name == freezed
           ? _value.name
@@ -129,7 +117,7 @@ class __$ChannelCopyWithImpl<$Res> extends _$ChannelCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_Channel with DiagnosticableTreeMixin implements _Channel {
-  const _$_Channel({this.id = '', this.teamId = '', this.name = ''});
+  const _$_Channel({this.id = '', this.name = ''});
 
   factory _$_Channel.fromJson(Map<String, dynamic> json) =>
       _$_$_ChannelFromJson(json);
@@ -139,14 +127,11 @@ class _$_Channel with DiagnosticableTreeMixin implements _Channel {
   final String id;
   @JsonKey(defaultValue: '')
   @override
-  final String teamId;
-  @JsonKey(defaultValue: '')
-  @override
   final String name;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Channel(id: $id, teamId: $teamId, name: $name)';
+    return 'Channel(id: $id, name: $name)';
   }
 
   @override
@@ -155,7 +140,6 @@ class _$_Channel with DiagnosticableTreeMixin implements _Channel {
     properties
       ..add(DiagnosticsProperty('type', 'Channel'))
       ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('teamId', teamId))
       ..add(DiagnosticsProperty('name', name));
   }
 
@@ -165,8 +149,6 @@ class _$_Channel with DiagnosticableTreeMixin implements _Channel {
         (other is _Channel &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.teamId, teamId) ||
-                const DeepCollectionEquality().equals(other.teamId, teamId)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)));
   }
@@ -175,7 +157,6 @@ class _$_Channel with DiagnosticableTreeMixin implements _Channel {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(teamId) ^
       const DeepCollectionEquality().hash(name);
 
   @JsonKey(ignore: true)
@@ -190,14 +171,12 @@ class _$_Channel with DiagnosticableTreeMixin implements _Channel {
 }
 
 abstract class _Channel implements Channel {
-  const factory _Channel({String id, String teamId, String name}) = _$_Channel;
+  const factory _Channel({String id, String name}) = _$_Channel;
 
   factory _Channel.fromJson(Map<String, dynamic> json) = _$_Channel.fromJson;
 
   @override
   String get id => throw _privateConstructorUsedError;
-  @override
-  String get teamId => throw _privateConstructorUsedError;
   @override
   String get name => throw _privateConstructorUsedError;
   @override

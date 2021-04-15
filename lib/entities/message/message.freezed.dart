@@ -23,8 +23,10 @@ class _$MessageTearOff {
   _Message call(
       {String message = '',
       String senderId = '',
-      DateTime? createdAt,
-      DateTime? updatedAt}) {
+      @JsonKey(toJson: toTimestamp, fromJson: toDateTime)
+          DateTime? createdAt,
+      @JsonKey(toJson: toTimestamp, fromJson: toDateTime)
+          DateTime? updatedAt}) {
     return _Message(
       message: message,
       senderId: senderId,
@@ -45,7 +47,9 @@ const $Message = _$MessageTearOff();
 mixin _$Message {
   String get message => throw _privateConstructorUsedError;
   String get senderId => throw _privateConstructorUsedError;
+  @JsonKey(toJson: toTimestamp, fromJson: toDateTime)
   DateTime? get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(toJson: toTimestamp, fromJson: toDateTime)
   DateTime? get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -60,8 +64,8 @@ abstract class $MessageCopyWith<$Res> {
   $Res call(
       {String message,
       String senderId,
-      DateTime? createdAt,
-      DateTime? updatedAt});
+      @JsonKey(toJson: toTimestamp, fromJson: toDateTime) DateTime? createdAt,
+      @JsonKey(toJson: toTimestamp, fromJson: toDateTime) DateTime? updatedAt});
 }
 
 /// @nodoc
@@ -108,8 +112,8 @@ abstract class _$MessageCopyWith<$Res> implements $MessageCopyWith<$Res> {
   $Res call(
       {String message,
       String senderId,
-      DateTime? createdAt,
-      DateTime? updatedAt});
+      @JsonKey(toJson: toTimestamp, fromJson: toDateTime) DateTime? createdAt,
+      @JsonKey(toJson: toTimestamp, fromJson: toDateTime) DateTime? updatedAt});
 }
 
 /// @nodoc
@@ -154,7 +158,10 @@ class __$MessageCopyWithImpl<$Res> extends _$MessageCopyWithImpl<$Res>
 /// @nodoc
 class _$_Message with DiagnosticableTreeMixin implements _Message {
   const _$_Message(
-      {this.message = '', this.senderId = '', this.createdAt, this.updatedAt});
+      {this.message = '',
+      this.senderId = '',
+      @JsonKey(toJson: toTimestamp, fromJson: toDateTime) this.createdAt,
+      @JsonKey(toJson: toTimestamp, fromJson: toDateTime) this.updatedAt});
 
   factory _$_Message.fromJson(Map<String, dynamic> json) =>
       _$_$_MessageFromJson(json);
@@ -166,8 +173,10 @@ class _$_Message with DiagnosticableTreeMixin implements _Message {
   @override
   final String senderId;
   @override
+  @JsonKey(toJson: toTimestamp, fromJson: toDateTime)
   final DateTime? createdAt;
   @override
+  @JsonKey(toJson: toTimestamp, fromJson: toDateTime)
   final DateTime? updatedAt;
 
   @override
@@ -227,8 +236,10 @@ abstract class _Message implements Message {
   const factory _Message(
       {String message,
       String senderId,
-      DateTime? createdAt,
-      DateTime? updatedAt}) = _$_Message;
+      @JsonKey(toJson: toTimestamp, fromJson: toDateTime)
+          DateTime? createdAt,
+      @JsonKey(toJson: toTimestamp, fromJson: toDateTime)
+          DateTime? updatedAt}) = _$_Message;
 
   factory _Message.fromJson(Map<String, dynamic> json) = _$_Message.fromJson;
 
@@ -237,8 +248,10 @@ abstract class _Message implements Message {
   @override
   String get senderId => throw _privateConstructorUsedError;
   @override
+  @JsonKey(toJson: toTimestamp, fromJson: toDateTime)
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @override
+  @JsonKey(toJson: toTimestamp, fromJson: toDateTime)
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

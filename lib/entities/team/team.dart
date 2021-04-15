@@ -4,7 +4,7 @@ part 'team.freezed.dart';
 part 'team.g.dart';
 
 @freezed
-abstract class Team with _$Team {
+class Team with _$Team {
   const factory Team({
     @Default('') String id,
     @Default('') String name,
