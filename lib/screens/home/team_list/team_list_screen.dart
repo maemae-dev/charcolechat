@@ -1,3 +1,4 @@
+import 'package:charcoalchat/providers/current_team.dart';
 import 'package:charcoalchat/providers/team_list.dart';
 import 'package:charcoalchat/router.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,10 @@ class TeamListScreen extends HookWidget {
             child: ListView.builder(
               itemBuilder: (context, index) {
                 return ListTile(
-                  onTap: onTapTeam,
+                  onTap: () {
+                    onTapTeam!();
+                    context.read(currentTeam.notifier).selectTeam(teams[index]);
+                  },
                   leading:
                       SizedBox(width: 40, height: 40, child: Placeholder()),
                   title: Text(

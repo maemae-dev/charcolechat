@@ -25,19 +25,17 @@ class ChannelScreen extends StatelessWidget {
             itemCount: 10,
           )),
           Divider(),
-          TextField(
-            decoration: InputDecoration(
-                hintText: 'title',
-                contentPadding: const EdgeInsets.symmetric(horizontal: 8.0)),
-            minLines: 1,
-            maxLines: 5,
+          SafeArea(
+            child: TextField(
+              decoration: InputDecoration(
+                  hintText: 'title',
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 8.0)),
+              minLines: 1,
+              maxLines: 5,
+            ),
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.message), label: 'DM')
-      ]),
     );
   }
 }

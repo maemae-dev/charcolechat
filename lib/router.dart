@@ -1,6 +1,7 @@
 import 'package:charcoalchat/entities/channel/channel.dart';
 import 'package:charcoalchat/entities/team/team.dart';
 import 'package:charcoalchat/screens/channel/channel_screen.dart';
+import 'package:charcoalchat/screens/home/create_channel_page/create_channel_page.dart';
 import 'package:charcoalchat/screens/home/home.dart';
 import 'package:charcoalchat/screens/login/login_screen.dart';
 import 'package:charcoalchat/screens/registration/registration_screen.dart';
@@ -81,6 +82,7 @@ class MyRouterDelegate extends RouterDelegate<ChatRoutePath>
   bool addTeamPage = false;
   bool authPage = false;
   bool login = false;
+  bool createChannelPage = false;
   String? signupFor;
 
   void toDetailPage() {
@@ -113,6 +115,11 @@ class MyRouterDelegate extends RouterDelegate<ChatRoutePath>
     notifyListeners();
   }
 
+  void createChannel() {
+    createChannelPage = true;
+    notifyListeners();
+  }
+
   @override
   ChatRoutePath? get currentConfiguration {
     return secondPage ? ChatRoutePath.channels('aaaa') : ChatRoutePath.teams();
@@ -125,6 +132,7 @@ class MyRouterDelegate extends RouterDelegate<ChatRoutePath>
         MaterialPage(
           child: HomeScreen(),
         ),
+        if (createChannelPage) CreateChannelPage(),
         if (secondPage) MaterialPage(child: ChannelScreen()),
         if (addTeamPage) RegistrationPage(),
         if (authPage) login ? LoginPage() : SignupPage(signupFor ?? '')
@@ -138,6 +146,7 @@ class MyRouterDelegate extends RouterDelegate<ChatRoutePath>
           addTeamPage = true;
           authPage = false;
           signupFor = null;
+          createChannelPage = false;
           notifyListeners();
           return true;
         }
@@ -146,6 +155,8 @@ class MyRouterDelegate extends RouterDelegate<ChatRoutePath>
         authPage = false;
         signupFor = null;
         login = false;
+        createChannelPage = false;
+
         notifyListeners();
         return true;
       },
