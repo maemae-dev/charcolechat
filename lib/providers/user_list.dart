@@ -13,6 +13,8 @@ class UserList extends StateNotifier<List<User>> {
   }
   final UserRepository _repository;
 
-  User sender(String senderId) =>
-      state.singleWhere((user) => user.id == senderId);
+  User? sender(String senderId) =>
+      state.where((user) => user.id == senderId).isEmpty
+          ? null
+          : state.singleWhere((user) => user.id == senderId);
 }

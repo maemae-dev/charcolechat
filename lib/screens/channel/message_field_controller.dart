@@ -5,7 +5,7 @@ import 'package:charcoalchat/repositories/message_repository.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final messageFieldController =
-    StateNotifierProvider<MessageFieldController, Message>((ref) =>
+    StateNotifierProvider.autoDispose<MessageFieldController, Message>((ref) =>
         MessageFieldController(
             ref.watch(currentUser), ref.watch(messageRepository)));
 
@@ -21,6 +21,7 @@ class MessageFieldController extends StateNotifier<Message> {
   }
 
   Future send() async {
-    return await _repository.create(state.copyWith(createdAt: DateTime.now()));
+    await _repository.create(state.copyWith(createdAt: DateTime.now()));
+    state = state.copyWith(message: '');
   }
 }

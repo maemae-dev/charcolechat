@@ -25,6 +25,12 @@ class MessageRepository {
         .toList();
   }
 
+  Stream<List<Message>?>? stream() {
+    return _ref?.orderBy('createdAt', descending: true).snapshots().map(
+        (snap) =>
+            snap.docs.map((doc) => Message.fromJson(doc.data())).toList());
+  }
+
   Future<DocumentReference>? create(Message message) {
     return _ref?.add(message.toJson());
   }
